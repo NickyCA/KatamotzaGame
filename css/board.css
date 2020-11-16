@@ -1,0 +1,376 @@
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+
+:root {
+  --color_fondo: #ffffff;
+  --color-fondo-enc-pie: #f2c572;
+  --color-fondo-info: #f3f3f3;
+  --color-base_uno: #f27294;
+  --color-base_dos: #f2acda;
+  --color-base_tres: #f2dc6b;
+  --color-base_fondo: #23d5d4d7;
+  --color-secondary-one: #ABABAB;
+  --color-secondary-two: #DDDDDD;
+  --fuente-principal: "Balsamiq Sans", cursive;
+  --colorShadeA: rgb(106, 163, 137);
+  --colorShadeB: rgb(121, 186, 156);
+  --colorShadeC: rgb(150, 232, 195);
+  --colorShadeD: rgb(187, 232, 211);
+  --colorShadeE: rgb(205, 255, 232);
+}
+
+#objects-container {
+  margin-top: 10px;
+}
+
+.container {
+  /*max-width: 1335px;*/
+  margin: 0 auto;
+  min-width: 300px;
+}
+.grid-row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.grid-item {
+  height: 50px;
+  flex-basis: 50px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: 50px;
+  position: relative;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: #FFF;
+  box-shadow: 5px 8px 3px 2px #ccc; 
+  margin: 10px;
+  text-align: center;
+  padding-top: 7px;
+
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform-origin: center right;
+  transition: transform 1s;
+  text-shadow: 1px 1px 2px grey;
+}
+
+.grid-item.is-flipped {
+  transform: translateX(-100%) rotateY(-180deg);
+  box-shadow: -5px 8px 3px 2px #ccc;
+}
+
+
+
+.grid-item-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.grid-item-face--front {
+  background: white;
+}
+
+.grid-item-face--back {
+  background: white;
+  transform: rotateY(180deg);
+}
+
+.grid-item-player {
+  height: 50px;
+  flex-basis: 50px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: 50px;
+  position: relative;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: #FFF;
+  box-shadow: 0px 0px 5px 5px #ccc; 
+  margin: 10px;
+  text-align: center;
+  padding-top: 7px;
+  color: rgb(252, 122, 122);
+}
+
+
+main section h2
+{
+  margin-left: 35%;
+}
+
+#stop
+{
+  margin: 10px;
+}
+
+#leave {
+  margin: 10px;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: row;
+  /*justify-content: flex-end;*/
+  align-items: left;
+  align-self: left;
+}
+
+ #players_game_info, #my_game_info
+ {
+    padding: 0;
+    list-style-type: none;
+ }
+
+ .grid-item:hover
+ {
+  transform: scale(1.5);
+  
+  /* animation-name: miss;
+  animation-duration: 0.4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out; */
+ }
+
+ .grid-item.wrong
+ {
+  animation-name: miss;
+  animation-duration: 0.4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+ }
+
+ .grid-item:active
+ {
+  color: #ffffff;
+ }
+
+ @keyframes miss
+{
+	25%
+	{
+		transform: translateX(-10px) rotate(10deg);
+	}
+
+	75%
+	{
+		transform: translateX(10px) rotate(-10deg);
+	}
+}
+
+.gray 
+{
+  opacity: 0.2;
+}
+
+/* @media(max-width: 1333px) {
+  .grid-item {
+    flex-basis: 33.33%;
+  }
+}
+@media(max-width: 1073px) {
+   .grid-item {
+    flex-basis: 33.33%;
+  }
+}
+@media(max-width: 815px) {
+  .grid-item {
+    flex-basis: 50%;
+  }
+}
+@media(max-width: 555px) {
+  .grid-item {
+    flex-basis: 100%;
+  }
+} */
+
+.central_content_board {
+  display: flex;
+  flex-direction: column;
+}
+
+.board_info {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  z-index: 10;
+  position: sticky;
+  top: 0;
+}
+
+.info_objects_one {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  border-radius: 25px;
+  background: var(--color-fondo-info);
+  padding: 20px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  border: 2px solid black;
+  opacity: 0.9;
+}
+
+.info_objects_two {
+  display: inline-block;
+  overflow-x: auto;
+  flex-flow: row;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 25px;
+  background: var(--color-fondo-info);
+  padding: 20px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+  border: 2px solid black;
+  opacity: 0.9;
+}
+
+.info_objects_two::-webkit-scrollbar-track {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.game_data {
+  display: flex;
+  flex-flow: row;
+}
+
+.my-cards-parent {
+  margin-right: 10px;
+  border-radius: 25px;
+  padding: 5px;
+  background-color: var(--color-fondo-enc-pie);
+}
+
+.points-info {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#main_game_info {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.points-info h3, h4, label {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.players-cards-parent {
+  display: flex;
+  flex-flow: row;
+  border-radius: 25px;
+  margin-left: 5px;
+  /*width: 50%;
+  white-space: nowrap;*/
+}
+
+.players-cards-container {
+  transition: order 3s;
+  order: 1;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 25px;
+  background-color: #d1cfcf;
+  min-width: 300px;
+  /*display: inline-block;*/
+}
+
+@media (max-width: 550px) {
+  .board_info {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .info_objects_one {
+    width: 100%;
+    padding: 0;
+    flex-flow: row;
+  }
+
+  .info_objects_two {
+    display: inline-block;
+    overflow-x: auto;
+  }
+
+  .game_data {
+    display: inline-flex;
+  }
+
+  .buttonsContainer {
+    flex-flow: row-reverse;
+  }
+}
+
+.players-cards-container.top {
+  animation: jello-horizontal 0.9s both;
+  background-color: var(--color-fondo-enc-pie);
+}
+
+.onTop {
+  font-weight: normal;
+}
+
+.trapCard {
+  width: 25px;
+  display: none;
+}
+
+.counters {
+  font-family: 'Shadows Into Light';
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2020-11-10 7:58:8
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation jello-horizontal
+ * ----------------------------------------
+ */
+@keyframes jello-horizontal {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+            transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+            transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+            transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+            transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+            transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+}
